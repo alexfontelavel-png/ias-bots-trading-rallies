@@ -1,0 +1,37 @@
+name: AI Trader — Ciclo diario
+
+on:
+  schedule:
+    # Cada día a las 23:00 hora española (21:00 UTC en invierno, 22:00 UTC en verano)
+    # Usamos 21:00 UTC para cubrir ambos horarios
+    - cron: '0 21 * * 1-5'   # Lunes a Viernes (mercados cerrados el finde)
+  workflow_dispatch:           # También permite ejecutarlo manualmente desde GitHub
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install google-genai yfinance pandas
+
+      - name: Ejecutar el trader
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python trader.py
+
+      - name: Guardar resultados en el repositorio
+        run: |
+          git config user.name "AI Trader Bot"
+          git config user.email "bot@ai-trader.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "📊 Trading update $(date +'%Y-%m-%d')"
+          git push
