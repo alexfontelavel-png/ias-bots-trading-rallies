@@ -399,20 +399,30 @@ function renderTwitter() {
       if (!d) return "";
       const ops = d.operaciones || [];
       const rent = d.rentabilidad_pct || 0;
-      const compras = ops.filter(o => o.accion === "comprar");
-      const ventas = ops.filter(o => o.accion === "vender");
 
-      // Bullet points: primero ops, luego visión mercado si faltan
       const bullets = [];
-      compras.forEach(o => bullets.push(`🟢 Compra ${o.ticker} — ${o.justificacion.split('.')[0]}.`));
-      ventas.forEach(o => bullets.push(`🔴 Vende ${o.ticker} — ${o.justificacion.split('.')[0]}.`));
-      if (bullets.length < 4) {
+      ops.filter(o => o.accion === "comprar").forEach(o =>
+        bullets.push(`🟢 Compra ${o.ticker} (${o.cantidad} acc) — ${o.justificacion.split('.')[0]}.`)
+      );
+      ops.filter(o => o.accion === "vender").forEach(o =>
+        bullets.push(`🔴 Vende ${o.ticker} (${o.cantidad} acc) — ${o.justificacion.split('.')[0]}.`)
+      );
+      if (bullets.length === 0) bullets.push("🔒 Sin operaciones hoy — mantiene cartera.");
+      const noticias = (d.noticias_clave || []).slice(0, 4 - bullets.length);
+      noticias.forEach(n => bullets.push(`📰 ${n.titular}`));
+      while (bullets.length < 4) {
         const frases = d.razonamiento.match(/[^.!?]+[.!?]/g) || [];
-        frases.slice(0, 4 - bullets.length).forEach(f => bullets.push(`📊 ${f.trim()}`));
+        const extra = frases[bullets.length - (ops.length || 1)];
+        if (extra) bullets.push(`📊 ${extra.trim()}`);
+        else break;
       }
-      const bulletText = bullets.slice(0, 4).map(b => `• ${b}`).join("\n");
 
-      const tweet = `🤖 ${ia.nombre} · ${d.fecha}\nCartera: ${d.valor_cartera.toLocaleString('es-ES',{minimumFractionDigits:2})}€ (${rent>=0?'+':''}${rent}% desde inicio)\n\n${bulletText}\n\n#AITrading #StockMarket`;
+      const tweet = `🤖 ${ia.nombre} · ${d.fecha}
+Cartera: ${d.valor_cartera.toLocaleString('es-ES',{minimumFractionDigits:2})}€ (${rent>=0?'+':''}${rent}% desde inicio)
+
+${bullets.slice(0,4).map(b => `• ${b}`).join("\n")}
+
+#AITrading #StockMarket`;
 
       return `
         <div class="card">
