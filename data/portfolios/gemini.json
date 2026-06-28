@@ -1,0 +1,63 @@
+{
+  "ia": "gemini",
+  "cash": 450.53000000000156,
+  "posiciones": {
+    "AAPL": {
+      "cantidad": 17,
+      "precio_medio": 283.78
+    },
+    "JNJ": {
+      "cantidad": 19,
+      "precio_medio": 254.66
+    },
+    "AMZN": {
+      "cantidad": 21,
+      "precio_medio": 232.69
+    },
+    "SAP.DE": {
+      "cantidad": 37,
+      "precio_medio": 135.14
+    }
+  },
+  "historial": [
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AAPL",
+      "cantidad": 17,
+      "precio": 283.78,
+      "justificacion": "Apple (AAPL) es una de las empresas tecnológicas más sólidas y con una marca global inigualable. Su comportamiento hoy, con un aumento del +3.14% a pesar de la ligera caída del NASDAQ, demuestra su resiliencia y el interés continuado de los inversores. La compra de acciones de Apple se alinea con una estrategia de inversión a medio plazo en empresas de calidad con un historial probado de crecimiento e innovación, ofreciendo una exposición robusta al sector tecnológico y al consumo discrecional."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "JNJ",
+      "cantidad": 19,
+      "precio": 254.66,
+      "justificacion": "Johnson & Johnson (JNJ) es un gigante del sector de la salud, conocido por su estabilidad y su naturaleza defensiva. Su significativo incremento del +3.99% hoy sugiere que los inversores buscan refugio en compañías con flujos de caja estables y dividendos fiables en un entorno de mayor incertidumbre global. Esta posición añade una importante diversificación sectorial a la cartera, equilibrando el componente tecnológico con un baluarte de la salud."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AMZN",
+      "cantidad": 21,
+      "precio": 232.69,
+      "justificacion": "Amazon (AMZN) sigue siendo un líder indiscutible en comercio electrónico y servicios en la nube (AWS), dos áreas de crecimiento estructural a largo plazo. Su subida del +2.50% hoy refleja la confianza en su modelo de negocio diversificado y su capacidad de adaptación. Incluir AMZN en la cartera proporciona una exposición significativa al crecimiento del consumo digital y la infraestructura tecnológica, sectores que continúan expandiéndose globalmente."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "SAP.DE",
+      "cantidad": 37,
+      "precio": 135.14,
+      "justificacion": "SAP (SAP.DE) es el mayor proveedor de software empresarial de Europa y muestra un sólido crecimiento del +2.16% hoy, destacando en un mercado europeo que opera a la baja. Esta empresa ofrece software crítico para la gestión de negocios, lo que se traduce en ingresos recurrentes y una fuerte posición de mercado. La inversión en SAP diversifica geográficamente la cartera hacia Europa y añade exposición al sector de software empresarial, un área fundamental y de alto margen."
+    }
+  ],
+  "valor_historico": [
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    }
+  ]
+}

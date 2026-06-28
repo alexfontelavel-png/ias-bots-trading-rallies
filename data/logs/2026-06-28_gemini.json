@@ -1,0 +1,93 @@
+{
+  "fecha": "2026-06-28",
+  "ia": "gemini",
+  "modelo": "gemini-2.5-flash",
+  "valor_cartera": 20000.0,
+  "rentabilidad_pct": 0.0,
+  "cash": 450.53000000000156,
+  "posiciones": {
+    "AAPL": {
+      "cantidad": 17,
+      "precio_medio": 283.78
+    },
+    "JNJ": {
+      "cantidad": 19,
+      "precio_medio": 254.66
+    },
+    "AMZN": {
+      "cantidad": 21,
+      "precio_medio": 232.69
+    },
+    "SAP.DE": {
+      "cantidad": 37,
+      "precio_medio": 135.14
+    }
+  },
+  "razonamiento": "El mercado global hoy presenta un escenario contrastado. Mientras que los índices asiáticos como el KOSPI y el Nikkei han experimentado caídas muy significativas (más del 4-5%), indicando un posible shock regional o una aversión al riesgo generalizada en la zona, los mercados de USA y Europa muestran una mayor resiliencia. En USA, a pesar de ligeras caídas en los índices generales, sectores como la tecnología de gran capitalización y la salud están demostrando un fuerte impulso alcista, sugiriendo un 'vuelo hacia la calidad' dentro de los mercados desarrollados. Europa también presenta un panorama mixto, con algunas empresas tecnológicas y farmacéuticas mostrando fortaleza, aunque el EuroStoxx se encuentra a la baja. Mi visión es cautelosa pero oportunista, enfocándome en activos de calidad en mercados más estables y evitando la alta volatilidad de Asia por el momento.",
+  "perspectiva": "Para los próximos 5-10 días de trading, estaré vigilando de cerca la evolución de los mercados asiáticos para entender la causa de la fuerte caída y evaluar si hay riesgo de contagio global. También prestaré atención a los datos macroeconómicos, especialmente la inflación y las declaraciones de los bancos centrales, que podrían influir en la renta fija y, por ende, en el apetito por el riesgo en la renta variable. La cartera está posicionada en empresas de calidad y líderes en sus respectivos sectores, con una diversificación geográfica entre USA y Europa, buscando estabilidad y crecimiento a medio plazo ante la volatilidad actual.",
+  "resumen_cartera": "La cartera queda compuesta por cuatro posiciones diversificadas: Apple (tecnología/consumo), Johnson & Johnson (salud), Amazon (e-commerce/cloud) y SAP (software empresarial). Esta composición busca mitigar riesgos sectoriales y geográficos, invirtiendo en empresas con fundamentales sólidos y buen momentum en mercados desarrollados, mientras se mantiene cautela ante la situación de Asia.",
+  "confianza": 75,
+  "operaciones": [
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AAPL",
+      "cantidad": 17,
+      "precio": 283.78,
+      "justificacion": "Apple (AAPL) es una de las empresas tecnológicas más sólidas y con una marca global inigualable. Su comportamiento hoy, con un aumento del +3.14% a pesar de la ligera caída del NASDAQ, demuestra su resiliencia y el interés continuado de los inversores. La compra de acciones de Apple se alinea con una estrategia de inversión a medio plazo en empresas de calidad con un historial probado de crecimiento e innovación, ofreciendo una exposición robusta al sector tecnológico y al consumo discrecional."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "JNJ",
+      "cantidad": 19,
+      "precio": 254.66,
+      "justificacion": "Johnson & Johnson (JNJ) es un gigante del sector de la salud, conocido por su estabilidad y su naturaleza defensiva. Su significativo incremento del +3.99% hoy sugiere que los inversores buscan refugio en compañías con flujos de caja estables y dividendos fiables en un entorno de mayor incertidumbre global. Esta posición añade una importante diversificación sectorial a la cartera, equilibrando el componente tecnológico con un baluarte de la salud."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AMZN",
+      "cantidad": 21,
+      "precio": 232.69,
+      "justificacion": "Amazon (AMZN) sigue siendo un líder indiscutible en comercio electrónico y servicios en la nube (AWS), dos áreas de crecimiento estructural a largo plazo. Su subida del +2.50% hoy refleja la confianza en su modelo de negocio diversificado y su capacidad de adaptación. Incluir AMZN en la cartera proporciona una exposición significativa al crecimiento del consumo digital y la infraestructura tecnológica, sectores que continúan expandiéndose globalmente."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "SAP.DE",
+      "cantidad": 37,
+      "precio": 135.14,
+      "justificacion": "SAP (SAP.DE) es el mayor proveedor de software empresarial de Europa y muestra un sólido crecimiento del +2.16% hoy, destacando en un mercado europeo que opera a la baja. Esta empresa ofrece software crítico para la gestión de negocios, lo que se traduce en ingresos recurrentes y una fuerte posición de mercado. La inversión en SAP diversifica geográficamente la cartera hacia Europa y añade exposición al sector de software empresarial, un área fundamental y de alto margen."
+    }
+  ],
+  "indices": {
+    "S&P 500": {
+      "valor": 7354.02,
+      "cambio_pct": -0.05
+    },
+    "NASDAQ": {
+      "valor": 25297.62,
+      "cambio_pct": -0.24
+    },
+    "EuroStoxx": {
+      "valor": 6221.55,
+      "cambio_pct": -0.73
+    },
+    "KOSPI": {
+      "valor": 8411.21,
+      "cambio_pct": -5.81
+    },
+    "Nikkei": {
+      "valor": 69360.88,
+      "cambio_pct": -4.15
+    }
+  },
+  "valor_historico": [
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    }
+  ]
+}
