@@ -2,10 +2,11 @@ name: AI Trader — Ciclo diario
 
 on:
   schedule:
-    # Cada día a las 23:00 hora española (21:00 UTC en invierno, 22:00 UTC en verano)
-    # Usamos 21:00 UTC para cubrir ambos horarios
-    - cron: '0 21 * * 1-5'   # Lunes a Viernes (mercados cerrados el finde)
-  workflow_dispatch:           # También permite ejecutarlo manualmente desde GitHub
+    - cron: '0 21 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   trade:
