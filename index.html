@@ -8,94 +8,127 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; min-height: 100vh; }
 
-    header { padding: 24px 32px; border-bottom: 1px solid #1e2433; display: flex; align-items: center; gap: 12px; }
+    header { padding: 24px 32px; border-bottom: 1px solid #1e2433; display: flex; align-items: center; justify-content: space-between; }
     header h1 { font-size: 20px; font-weight: 600; }
     header .badge { background: #1a3a2a; color: #4ade80; font-size: 11px; padding: 3px 8px; border-radius: 20px; border: 1px solid #166534; }
+    .inception { font-size: 12px; color: #475569; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 32px; }
 
-    /* Tabs */
-    .tabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid #1e2433; }
-    .tab { padding: 10px 18px; font-size: 14px; color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s; }
+    .tabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid #1e2433; overflow-x: auto; }
+    .tab { padding: 10px 18px; font-size: 14px; color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s; white-space: nowrap; }
     .tab.active { color: #e2e8f0; border-bottom-color: #6366f1; }
 
-    /* Cards de IAs */
-    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px; }
     .ia-card { background: #161b27; border: 1px solid #1e2433; border-radius: 12px; padding: 20px; }
     .ia-card .name { font-size: 13px; color: #64748b; margin-bottom: 4px; }
     .ia-card .value { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
-    .ia-card .pct { font-size: 14px; }
-    .ia-card .pct.up { color: #4ade80; }
-    .ia-card .pct.down { color: #f87171; }
-    .ia-card .meta { font-size: 12px; color: #475569; margin-top: 8px; }
+    .ia-card .pct.up { color: #4ade80; font-size: 14px; }
+    .ia-card .pct.down { color: #f87171; font-size: 14px; }
+    .ia-card .meta { font-size: 12px; color: #475569; margin-top: 6px; }
 
-    /* Razonamiento */
-    .reasoning-card { background: #161b27; border: 1px solid #1e2433; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-    .reasoning-card .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .reasoning-card .ia-name { font-weight: 600; font-size: 16px; }
-    .reasoning-card .fecha { font-size: 12px; color: #475569; }
-    .reasoning-card .confianza { font-size: 12px; background: #1e2433; padding: 4px 10px; border-radius: 20px; }
-    .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #475569; margin-bottom: 6px; }
-    .reasoning-text { font-size: 14px; line-height: 1.7; color: #94a3b8; margin-bottom: 16px; }
-    .outlook-text { font-size: 14px; line-height: 1.7; color: #7c9bbf; font-style: italic; }
+    .card { background: #161b27; border: 1px solid #1e2433; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .card-title { font-weight: 600; font-size: 16px; }
+    .card-date { font-size: 12px; color: #475569; }
+    .label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #475569; margin-bottom: 6px; margin-top: 16px; }
+    .label:first-child { margin-top: 0; }
+    .text-muted { font-size: 14px; line-height: 1.7; color: #94a3b8; margin-bottom: 4px; }
+    .text-italic { font-size: 14px; line-height: 1.7; color: #7c9bbf; font-style: italic; }
 
-    /* Operaciones */
-    .ops-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-    .op-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: #0f1117; border-radius: 8px; border: 1px solid #1e2433; }
-    .op-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+    .today-hero { background: linear-gradient(135deg, #1a1f35 0%, #161b27 100%); border: 1px solid #2d3555; border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+    .today-hero .headline { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .today-hero .subline { font-size: 14px; color: #64748b; margin-bottom: 20px; }
+    .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat .s-label { font-size: 11px; color: #475569; text-transform: uppercase; letter-spacing: .06em; }
+    .stat .s-val { font-size: 20px; font-weight: 700; margin-top: 2px; }
+    .stat .s-val.up { color: #4ade80; }
+    .stat .s-val.down { color: #f87171; }
+    .stat .s-val.neutral { color: #e2e8f0; }
+
+    .ops-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+    .op-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: #0f1117; border-radius: 10px; border: 1px solid #1e2433; }
+    .op-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
     .op-badge.comprar { background: #14532d; color: #4ade80; }
     .op-badge.vender { background: #450a0a; color: #f87171; }
-    .op-ticker { font-weight: 600; font-size: 14px; white-space: nowrap; flex-shrink: 0; min-width: 80px; }
-    .op-justificacion { font-size: 13px; color: #64748b; line-height: 1.5; }
+    .op-badge.mantener { background: #1e2433; color: #64748b; }
+    .op-ticker { font-weight: 700; font-size: 15px; white-space: nowrap; flex-shrink: 0; min-width: 90px; }
+    .op-detail { flex: 1; }
+    .op-detail .op-price { font-size: 12px; color: #475569; margin-bottom: 4px; }
+    .op-detail .op-just { font-size: 13px; color: #94a3b8; line-height: 1.5; }
 
-    /* Historial de valor */
-    .chart-area { background: #161b27; border: 1px solid #1e2433; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
-    .chart-area h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
-    .history-list { display: flex; flex-direction: column; gap: 6px; }
-    .history-row { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 0; border-bottom: 1px solid #1e2433; }
-    .history-row:last-child { border-bottom: none; }
+    .bench-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .bench-card { background: #0f1117; border: 1px solid #1e2433; border-radius: 10px; padding: 16px; }
+    .bench-card .b-name { font-size: 12px; color: #475569; margin-bottom: 4px; }
+    .bench-card .b-val { font-size: 20px; font-weight: 700; }
+    .bench-card .b-val.up { color: #4ade80; }
+    .bench-card .b-val.down { color: #f87171; }
+    .bench-card .b-sub { font-size: 11px; color: #475569; margin-top: 4px; }
+    .winner-badge { display: inline-block; background: #14532d; color: #4ade80; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
 
-    /* Posiciones */
+    .history-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .history-table th { text-align: left; padding: 8px 12px; color: #475569; font-weight: 500; border-bottom: 1px solid #1e2433; }
+    .history-table td { padding: 10px 12px; border-bottom: 1px solid #0f1117; vertical-align: top; }
+    .history-table tr:last-child td { border-bottom: none; }
+    .history-table .op-mini { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-right: 4px; margin-bottom: 2px; }
+    .history-table .op-mini.comprar { background: #14532d; color: #4ade80; }
+    .history-table .op-mini.vender { background: #450a0a; color: #f87171; }
+
+    .twitter-card { background: #0f1117; border: 1px solid #1e2433; border-radius: 12px; padding: 20px; margin-bottom: 16px; position: relative; }
+    .twitter-card pre { font-family: inherit; font-size: 14px; line-height: 1.7; color: #e2e8f0; white-space: pre-wrap; word-break: break-word; }
+    .copy-btn { position: absolute; top: 16px; right: 16px; background: #1e2433; border: none; color: #94a3b8; font-size: 12px; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+    .copy-btn:hover { background: #2d3748; color: #e2e8f0; }
+
     .positions-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .positions-table th { text-align: left; padding: 8px 12px; color: #475569; font-weight: 500; border-bottom: 1px solid #1e2433; }
     .positions-table td { padding: 10px 12px; border-bottom: 1px solid #0f1117; }
     .positions-table tr:last-child td { border-bottom: none; }
 
-    .loading { text-align: center; padding: 60px; color: #475569; font-size: 14px; }
-    .error-msg { background: #450a0a; border: 1px solid #7f1d1d; border-radius: 8px; padding: 16px; color: #fca5a5; font-size: 14px; margin-bottom: 20px; }
-
-    /* Indices bar */
-    .indices-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+    .indices-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; padding: 16px 20px; background: #161b27; border-radius: 10px; border: 1px solid #1e2433; }
     .index-item { font-size: 13px; }
-    .index-item .idx-name { color: #475569; }
-    .index-item .idx-val { font-weight: 600; margin: 0 4px; }
+    .index-item .idx-name { color: #475569; margin-right: 4px; }
+    .index-item .idx-val { font-weight: 600; margin-right: 4px; }
     .index-item .idx-chg.up { color: #4ade80; }
     .index-item .idx-chg.down { color: #f87171; }
+
+    .loading { text-align: center; padding: 60px; color: #475569; font-size: 14px; }
+    .no-data { color: #475569; font-size: 14px; padding: 20px 0; }
+    .divider { height: 1px; background: #1e2433; margin: 20px 0; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🤖 AI Trading League</h1>
-  <span class="badge">● En vivo</span>
+  <div style="display:flex;align-items:center;gap:12px">
+    <h1>🤖 AI Trading League</h1>
+    <span class="badge">● En vivo</span>
+  </div>
+  <span class="inception">Inception: 29 jun 2026</span>
 </header>
 
 <div class="container">
 
   <div class="tabs">
-    <div class="tab active" onclick="showTab('resumen')">Resumen</div>
-    <div class="tab" onclick="showTab('razonamiento')">Razonamiento</div>
+    <div class="tab active" onclick="showTab('hoy')">📅 Hoy</div>
+    <div class="tab" onclick="showTab('resumen')">Resumen</div>
+    <div class="tab" onclick="showTab('benchmark')">📊 vs S&P 500</div>
     <div class="tab" onclick="showTab('posiciones')">Posiciones</div>
     <div class="tab" onclick="showTab('historial')">Historial</div>
+    <div class="tab" onclick="showTab('twitter')">🐦 Twitter</div>
   </div>
 
-  <div id="tab-resumen">
+  <div id="tab-hoy">
+    <div id="hoy-content"><div class="loading">Cargando...</div></div>
+  </div>
+
+  <div id="tab-resumen" style="display:none">
     <div id="indices-bar" class="indices-bar"></div>
-    <div id="ia-cards" class="ia-grid"><div class="loading">Cargando datos...</div></div>
+    <div id="ia-cards" class="ia-grid"><div class="loading">Cargando...</div></div>
+    <div id="reasoning-content"></div>
   </div>
 
-  <div id="tab-razonamiento" style="display:none">
-    <div id="reasoning-content"><div class="loading">Cargando...</div></div>
+  <div id="tab-benchmark" style="display:none">
+    <div id="benchmark-content"><div class="loading">Cargando...</div></div>
   </div>
 
   <div id="tab-posiciones" style="display:none">
@@ -106,47 +139,102 @@
     <div id="history-content"><div class="loading">Cargando...</div></div>
   </div>
 
+  <div id="tab-twitter" style="display:none">
+    <div id="twitter-content"><div class="loading">Cargando...</div></div>
+  </div>
+
 </div>
 
 <script>
-  // ── CONFIGURACIÓN ─────────────────────────────────────────────
-  // Cambia esto por tu usuario y nombre de repositorio de GitHub
-const GITHUB_USER = "alexfontelavel-png";
-const GITHUB_REPO = "ias-bots-trading-rallies";
+  const GITHUB_USER = "alexfontelavel-png";
+  const GITHUB_REPO = "ias-bots-trading-rallies";
   const BASE_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/data`;
+  const INCEPTION_DATE = "2026-06-29";
+  const INCEPTION_VALUE = 20000;
 
-  // IAs activas (añade más cuando conectes nuevas APIs)
   const IAS = [
     { id: "gemini", nombre: "Gemini 2.5 Flash", color: "#4285f4" },
-    // { id: "claude",  nombre: "Claude Opus",       color: "#7c3aed" },  // próximamente
-    // { id: "gpt",     nombre: "ChatGPT-4o",        color: "#10a37f" },  // próximamente
-    // { id: "deepseek",nombre: "DeepSeek R2",        color: "#e85d04" },  // próximamente
   ];
 
   let allData = {};
 
-  // ── CARGA DE DATOS ────────────────────────────────────────────
   async function loadData() {
     for (const ia of IAS) {
       try {
-        const res = await fetch(`${BASE_URL}/latest_${ia.id}.json`);
+        const res = await fetch(`${BASE_URL}/latest_${ia.id}.json?t=${Date.now()}`);
         if (res.ok) allData[ia.id] = await res.json();
-      } catch (e) {
-        console.warn(`No se pudo cargar ${ia.id}:`, e);
-      }
+      } catch (e) { console.warn(`Error cargando ${ia.id}:`, e); }
     }
     renderAll();
   }
 
   function renderAll() {
+    renderHoy();
     renderIndices();
     renderCards();
     renderReasoning();
+    renderBenchmark();
     renderPositions();
     renderHistory();
+    renderTwitter();
   }
 
-  // ── ÍNDICES ───────────────────────────────────────────────────
+  function renderHoy() {
+    const container = document.getElementById("hoy-content");
+    const html = IAS.map(ia => {
+      const d = allData[ia.id];
+      if (!d) return `<div class="no-data">Sin datos para hoy todavía.</div>`;
+      const ops = (d.operaciones || []);
+      const compras = ops.filter(o => o.accion === "comprar");
+      const ventas = ops.filter(o => o.accion === "vender");
+      const rent = d.rentabilidad_pct || 0;
+      const rentUp = rent >= 0;
+      return `
+        <div class="today-hero">
+          <div class="headline">${ia.nombre} — ${d.fecha}</div>
+          <div class="subline">Resumen del día de trading</div>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="s-label">Valor cartera</div>
+              <div class="s-val neutral">${d.valor_cartera.toLocaleString('es-ES', {minimumFractionDigits:2})}€</div>
+            </div>
+            <div class="stat">
+              <div class="s-label">Rentabilidad acumulada</div>
+              <div class="s-val ${rentUp ? 'up' : 'down'}">${rentUp ? '+' : ''}${rent}%</div>
+            </div>
+            <div class="stat">
+              <div class="s-label">Operaciones hoy</div>
+              <div class="s-val neutral">${ops.length === 0 ? 'Ninguna' : `${compras.length} compras · ${ventas.length} ventas`}</div>
+            </div>
+            <div class="stat">
+              <div class="s-label">Confianza IA</div>
+              <div class="s-val neutral">${d.confianza}%</div>
+            </div>
+          </div>
+          <div class="label">Análisis del mercado hoy</div>
+          <div class="text-muted">${d.razonamiento}</div>
+          ${ops.length > 0 ? `
+            <div class="label">Operaciones ejecutadas</div>
+            <div class="ops-list">
+              ${ops.map(op => `
+                <div class="op-item">
+                  <span class="op-badge ${op.accion}">${op.accion.toUpperCase()}</span>
+                  <div class="op-ticker">${op.ticker}</div>
+                  <div class="op-detail">
+                    <div class="op-price">${op.cantidad} acc · ${op.precio ? op.precio.toFixed(2) : '—'}</div>
+                    <div class="op-just">${op.justificacion}</div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          ` : `<div class="label">Operaciones</div><div class="text-muted">Sin operaciones hoy — la IA mantiene la cartera sin cambios.</div>`}
+          ${d.perspectiva ? `<div class="divider"></div><div class="label">Perspectiva próximos días</div><div class="text-italic">${d.perspectiva}</div>` : ""}
+          ${d.resumen_cartera ? `<div class="label">Estado de la cartera</div><div class="text-muted">${d.resumen_cartera}</div>` : ""}
+        </div>`;
+    }).join("");
+    container.innerHTML = html;
+  }
+
   function renderIndices() {
     const firstIA = Object.values(allData)[0];
     if (!firstIA?.indices) return;
@@ -161,121 +249,194 @@ const GITHUB_REPO = "ias-bots-trading-rallies";
     }).join("");
   }
 
-  // ── CARDS DE IAs ─────────────────────────────────────────────
   function renderCards() {
     const container = document.getElementById("ia-cards");
     container.innerHTML = IAS.map(ia => {
       const d = allData[ia.id];
-      if (!d) return `<div class="ia-card"><div class="name">${ia.nombre}</div><div style="color:#475569;font-size:13px;margin-top:8px">Sin datos aún</div></div>`;
+      if (!d) return `<div class="ia-card"><div class="name">${ia.nombre}</div><div class="meta">Sin datos aún</div></div>`;
       const up = d.rentabilidad_pct >= 0;
       return `<div class="ia-card">
         <div class="name">${ia.nombre}</div>
         <div class="value">${d.valor_cartera.toLocaleString('es-ES', {minimumFractionDigits:2})}€</div>
-        <div class="pct ${up ? 'up' : 'down'}">${up ? '▲' : '▼'} ${up ? '+' : ''}${d.rentabilidad_pct}% vs inicio</div>
-        <div class="meta">Cash libre: ${d.cash.toLocaleString('es-ES', {minimumFractionDigits:2})}€ · Confianza: ${d.confianza}%</div>
-        <div class="meta">Última actualización: ${d.fecha}</div>
+        <div class="pct ${up ? 'up' : 'down'}">${up ? '▲' : '▼'} ${up ? '+' : ''}${d.rentabilidad_pct}% vs inception</div>
+        <div class="meta">Cash libre: ${d.cash.toLocaleString('es-ES', {minimumFractionDigits:2})}€</div>
+        <div class="meta">Actualizado: ${d.fecha}</div>
       </div>`;
     }).join("");
   }
 
-  // ── RAZONAMIENTO ──────────────────────────────────────────────
   function renderReasoning() {
     const container = document.getElementById("reasoning-content");
     container.innerHTML = IAS.map(ia => {
       const d = allData[ia.id];
       if (!d) return "";
-      const ops = (d.operaciones || []).filter(o => o.accion !== "mantener");
-      return `<div class="reasoning-card">
-        <div class="header">
-          <span class="ia-name">${ia.nombre}</span>
-          <div style="display:flex;gap:8px;align-items:center">
-            <span class="confianza">Confianza: ${d.confianza}%</span>
-            <span class="fecha">${d.fecha}</span>
-          </div>
+      return `<div class="card">
+        <div class="card-header">
+          <span class="card-title">${ia.nombre} — Razonamiento completo</span>
+          <span class="card-date">${d.fecha}</span>
         </div>
-        <div class="section-label">Análisis del mercado</div>
-        <div class="reasoning-text">${d.razonamiento}</div>
-        ${d.perspectiva ? `<div class="section-label">Perspectiva</div><div class="outlook-text">${d.perspectiva}</div>` : ""}
-        ${d.resumen_cartera ? `<div class="section-label" style="margin-top:16px">Estado de la cartera</div><div class="reasoning-text">${d.resumen_cartera}</div>` : ""}
-        ${ops.length > 0 ? `
-          <div class="section-label" style="margin-top:16px">Operaciones de hoy</div>
-          <div class="ops-list">
-            ${ops.map(op => `
-              <div class="op-item">
-                <span class="op-badge ${op.accion}">${op.accion.toUpperCase()}</span>
-                <span class="op-ticker">${op.ticker}</span>
-                <span class="op-justificacion">${op.justificacion}</span>
-              </div>
-            `).join("")}
-          </div>
-        ` : `<div class="section-label" style="margin-top:16px">Sin operaciones hoy</div>`}
+        <div class="label">Análisis</div>
+        <div class="text-muted">${d.razonamiento}</div>
+        ${d.perspectiva ? `<div class="label">Perspectiva</div><div class="text-italic">${d.perspectiva}</div>` : ""}
       </div>`;
     }).join("");
   }
 
-  // ── POSICIONES ────────────────────────────────────────────────
-  function renderPositions() {
-    const container = document.getElementById("positions-content");
-    container.innerHTML = IAS.map(ia => {
+  function renderBenchmark() {
+    const container = document.getElementById("benchmark-content");
+    const html = IAS.map(ia => {
       const d = allData[ia.id];
-      if (!d || !d.posiciones) return "";
-      const pos = Object.entries(d.posiciones);
-      return `<div class="reasoning-card">
-        <div class="header"><span class="ia-name">${ia.nombre}</span><span class="fecha">${d.fecha}</span></div>
-        ${pos.length === 0 ? '<div style="color:#475569;font-size:13px">Sin posiciones abiertas (100% cash)</div>' : `
-          <table class="positions-table">
-            <thead><tr>
-              <th>Ticker</th><th>Acciones</th><th>Precio compra</th><th>Valor actual</th>
-            </tr></thead>
+      if (!d) return `<div class="no-data">Sin datos suficientes para comparar.</div>`;
+      const iaRent = d.rentabilidad_pct || 0;
+      const sp500 = d.indices?.["S&P 500"];
+      const nasdaq = d.indices?.["NASDAQ"];
+      const hist = d.valor_historico || [];
+      const diasActivos = hist.length;
+      const iaGana = sp500 ? iaRent > (sp500.cambio_pct || 0) : null;
+      return `
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Rentabilidad acumulada desde inception</span>
+            <span class="card-date">Desde ${INCEPTION_DATE}</span>
+          </div>
+          <div class="bench-grid">
+            <div class="bench-card">
+              <div class="b-name">${ia.nombre} ${iaGana ? '<span class="winner-badge">↑ GANANDO</span>' : ''}</div>
+              <div class="b-val ${iaRent >= 0 ? 'up' : 'down'}">${iaRent >= 0 ? '+' : ''}${iaRent}%</div>
+              <div class="b-sub">${d.valor_cartera.toLocaleString('es-ES', {minimumFractionDigits:2})}€ · ${diasActivos} días</div>
+            </div>
+            ${sp500 ? `<div class="bench-card">
+              <div class="b-name">S&P 500 (hoy)</div>
+              <div class="b-val ${sp500.cambio_pct >= 0 ? 'up' : 'down'}">${sp500.cambio_pct >= 0 ? '+' : ''}${sp500.cambio_pct}%</div>
+              <div class="b-sub">${sp500.valor.toLocaleString()}</div>
+            </div>` : ""}
+            ${nasdaq ? `<div class="bench-card">
+              <div class="b-name">NASDAQ (hoy)</div>
+              <div class="b-val ${nasdaq.cambio_pct >= 0 ? 'up' : 'down'}">${nasdaq.cambio_pct >= 0 ? '+' : ''}${nasdaq.cambio_pct}%</div>
+              <div class="b-sub">${nasdaq.valor.toLocaleString()}</div>
+            </div>` : ""}
+          </div>
+          <div class="label">Evolución diaria de la cartera</div>
+          <table class="history-table">
+            <thead><tr><th>Fecha</th><th>Valor</th><th>Rentabilidad acumulada</th></tr></thead>
             <tbody>
-              ${pos.map(([ticker, p]) => `
+              ${[...hist].reverse().map(h => `
                 <tr>
-                  <td style="font-weight:600">${ticker}</td>
-                  <td>${p.cantidad}</td>
-                  <td>${p.precio_medio.toFixed(2)}</td>
-                  <td>${(p.cantidad * p.precio_medio).toLocaleString('es-ES', {minimumFractionDigits:0})}€</td>
+                  <td>${h.fecha}</td>
+                  <td>${h.valor.toLocaleString('es-ES', {minimumFractionDigits:2})}€</td>
+                  <td style="color:${h.rentabilidad_pct >= 0 ? '#4ade80' : '#f87171'}">${h.rentabilidad_pct >= 0 ? '+' : ''}${h.rentabilidad_pct}%</td>
                 </tr>
               `).join("")}
             </tbody>
           </table>
-        `}
+        </div>`;
+    }).join("");
+    container.innerHTML = html;
+  }
+
+  function renderPositions() {
+    const container = document.getElementById("positions-content");
+    container.innerHTML = IAS.map(ia => {
+      const d = allData[ia.id];
+      if (!d) return "";
+      const pos = Object.entries(d.posiciones || {});
+      return `<div class="card">
+        <div class="card-header"><span class="card-title">${ia.nombre}</span><span class="card-date">${d.fecha}</span></div>
+        ${pos.length === 0
+          ? `<div class="no-data">Sin posiciones abiertas — 100% cash (${d.cash.toLocaleString('es-ES')}€)</div>`
+          : `<table class="positions-table">
+              <thead><tr><th>Ticker</th><th>Acciones</th><th>Precio medio</th><th>Valor invertido</th></tr></thead>
+              <tbody>
+                ${pos.map(([ticker, p]) => `
+                  <tr>
+                    <td style="font-weight:700">${ticker}</td>
+                    <td>${p.cantidad}</td>
+                    <td>${p.precio_medio.toFixed(2)}</td>
+                    <td>${(p.cantidad * p.precio_medio).toLocaleString('es-ES', {minimumFractionDigits:0})}€</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>`
+        }
       </div>`;
     }).join("");
   }
 
-  // ── HISTORIAL ─────────────────────────────────────────────────
   function renderHistory() {
     const container = document.getElementById("history-content");
     container.innerHTML = IAS.map(ia => {
       const d = allData[ia.id];
-      if (!d?.valor_historico?.length) return "";
-      const sorted = [...d.valor_historico].reverse().slice(0, 30);
-      return `<div class="chart-area">
-        <h3>${ia.nombre} — Evolución de cartera</h3>
-        <div class="history-list">
-          ${sorted.map(h => {
-            const up = h.rentabilidad_pct >= 0;
-            return `<div class="history-row">
-              <span style="color:#64748b">${h.fecha}</span>
-              <span>${h.valor.toLocaleString('es-ES', {minimumFractionDigits:2})}€</span>
-              <span style="color:${up ? '#4ade80' : '#f87171'}">${up ? '+' : ''}${h.rentabilidad_pct}%</span>
-            </div>`;
-          }).join("")}
-        </div>
+      if (!d) return "";
+      const hist = d.historial || [];
+      if (hist.length === 0) return `<div class="card"><div class="card-title">${ia.nombre}</div><div class="no-data" style="margin-top:12px">Sin operaciones registradas aún.</div></div>`;
+      const grouped = {};
+      hist.forEach(op => {
+        if (!grouped[op.fecha]) grouped[op.fecha] = [];
+        grouped[op.fecha].push(op);
+      });
+      return `<div class="card">
+        <div class="card-header"><span class="card-title">${ia.nombre} — Todas las operaciones</span></div>
+        <table class="history-table">
+          <thead><tr><th>Fecha</th><th>Operaciones</th><th>Justificación</th></tr></thead>
+          <tbody>
+            ${Object.entries(grouped).reverse().map(([fecha, ops]) => `
+              <tr>
+                <td style="white-space:nowrap;color:#64748b">${fecha}</td>
+                <td style="white-space:nowrap">${ops.map(op => `<span class="op-mini ${op.accion}">${op.accion.toUpperCase()} ${op.ticker}</span>`).join("<br>")}</td>
+                <td>${ops.map(op => `<div style="margin-bottom:6px;font-size:12px;color:#94a3b8">${op.ticker}: ${op.justificacion}</div>`).join("")}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
       </div>`;
     }).join("");
   }
 
-  // ── TABS ──────────────────────────────────────────────────────
-  function showTab(name) {
-    ['resumen','razonamiento','posiciones','historial'].forEach(t => {
-      document.getElementById(`tab-${t}`).style.display = t === name ? 'block' : 'none';
-      document.querySelectorAll('.tab')[['resumen','razonamiento','posiciones','historial'].indexOf(t)]
-        .classList.toggle('active', t === name);
+  function renderTwitter() {
+    const container = document.getElementById("twitter-content");
+    const html = IAS.map(ia => {
+      const d = allData[ia.id];
+      if (!d) return "";
+      const ops = d.operaciones || [];
+      const rent = d.rentabilidad_pct || 0;
+      const compras = ops.filter(o => o.accion === "comprar").map(o => `🟢 ${o.ticker}`).join(" ");
+      const ventas = ops.filter(o => o.accion === "vender").map(o => `🔴 ${o.ticker}`).join(" ");
+      const tweet1 = `🤖 ${ia.nombre} — Resumen ${d.fecha}\n\nCartera: ${d.valor_cartera.toLocaleString('es-ES', {minimumFractionDigits:2})}€ (${rent >= 0 ? '+' : ''}${rent}% desde inicio)\n\n${compras ? `Compras: ${compras}` : ''}${ventas ? `\nVentas: ${ventas}` : ''}${ops.length === 0 ? 'Sin operaciones hoy 🔒' : ''}\n\n#AITrading #Gemini #StockMarket`;
+      const tweet2 = `💬 Análisis de ${ia.nombre} (${d.fecha}):\n\n"${d.razonamiento.substring(0, 220)}${d.razonamiento.length > 220 ? '...' : ''}"\n\nConfianza: ${d.confianza}% | #AITrading`;
+      return `
+        <div class="card">
+          <div class="card-header"><span class="card-title">Tweets listos para publicar — ${ia.nombre}</span></div>
+          <div class="label">Tweet 1 — Resumen de operaciones</div>
+          <div class="twitter-card">
+            <button class="copy-btn" onclick="copyText(this, 'tweet1-${ia.id}')">Copiar</button>
+            <pre id="tweet1-${ia.id}">${tweet1}</pre>
+          </div>
+          <div class="label">Tweet 2 — Razonamiento de la IA</div>
+          <div class="twitter-card">
+            <button class="copy-btn" onclick="copyText(this, 'tweet2-${ia.id}')">Copiar</button>
+            <pre id="tweet2-${ia.id}">${tweet2}</pre>
+          </div>
+        </div>`;
+    }).join("");
+    container.innerHTML = html;
+  }
+
+  function copyText(btn, id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = "¡Copiado!";
+      setTimeout(() => btn.textContent = "Copiar", 2000);
     });
   }
 
-  // ── INIT ──────────────────────────────────────────────────────
+  const TAB_NAMES = ['hoy','resumen','benchmark','posiciones','historial','twitter'];
+  function showTab(name) {
+    TAB_NAMES.forEach((t, i) => {
+      document.getElementById(`tab-${t}`).style.display = t === name ? 'block' : 'none';
+      document.querySelectorAll('.tab')[i].classList.toggle('active', t === name);
+    });
+  }
+
   loadData();
 </script>
 </body>
