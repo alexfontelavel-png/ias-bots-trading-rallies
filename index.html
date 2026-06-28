@@ -392,29 +392,34 @@
     }).join("");
   }
 
-  function renderTwitter() {
+function renderTwitter() {
     const container = document.getElementById("twitter-content");
     const html = IAS.map(ia => {
       const d = allData[ia.id];
       if (!d) return "";
       const ops = d.operaciones || [];
       const rent = d.rentabilidad_pct || 0;
-      const compras = ops.filter(o => o.accion === "comprar").map(o => `🟢 ${o.ticker}`).join(" ");
-      const ventas = ops.filter(o => o.accion === "vender").map(o => `🔴 ${o.ticker}`).join(" ");
-      const tweet1 = `🤖 ${ia.nombre} — Resumen ${d.fecha}\n\nCartera: ${d.valor_cartera.toLocaleString('es-ES', {minimumFractionDigits:2})}€ (${rent >= 0 ? '+' : ''}${rent}% desde inicio)\n\n${compras ? `Compras: ${compras}` : ''}${ventas ? `\nVentas: ${ventas}` : ''}${ops.length === 0 ? 'Sin operaciones hoy 🔒' : ''}\n\n#AITrading #Gemini #StockMarket`;
-      const tweet2 = `💬 Análisis de ${ia.nombre} (${d.fecha}):\n\n"${d.razonamiento.substring(0, 220)}${d.razonamiento.length > 220 ? '...' : ''}"\n\nConfianza: ${d.confianza}% | #AITrading`;
+      const compras = ops.filter(o => o.accion === "comprar");
+      const ventas = ops.filter(o => o.accion === "vender");
+
+      // Bullet points: primero ops, luego visión mercado si faltan
+      const bullets = [];
+      compras.forEach(o => bullets.push(`🟢 Compra ${o.ticker} — ${o.justificacion.split('.')[0]}.`));
+      ventas.forEach(o => bullets.push(`🔴 Vende ${o.ticker} — ${o.justificacion.split('.')[0]}.`));
+      if (bullets.length < 4) {
+        const frases = d.razonamiento.match(/[^.!?]+[.!?]/g) || [];
+        frases.slice(0, 4 - bullets.length).forEach(f => bullets.push(`📊 ${f.trim()}`));
+      }
+      const bulletText = bullets.slice(0, 4).map(b => `• ${b}`).join("\n");
+
+      const tweet = `🤖 ${ia.nombre} · ${d.fecha}\nCartera: ${d.valor_cartera.toLocaleString('es-ES',{minimumFractionDigits:2})}€ (${rent>=0?'+':''}${rent}% desde inicio)\n\n${bulletText}\n\n#AITrading #StockMarket`;
+
       return `
         <div class="card">
-          <div class="card-header"><span class="card-title">Tweets listos para publicar — ${ia.nombre}</span></div>
-          <div class="label">Tweet 1 — Resumen de operaciones</div>
+          <div class="card-header"><span class="card-title">Tweet del día — ${ia.nombre}</span></div>
           <div class="twitter-card">
-            <button class="copy-btn" onclick="copyText(this, 'tweet1-${ia.id}')">Copiar</button>
-            <pre id="tweet1-${ia.id}">${tweet1}</pre>
-          </div>
-          <div class="label">Tweet 2 — Razonamiento de la IA</div>
-          <div class="twitter-card">
-            <button class="copy-btn" onclick="copyText(this, 'tweet2-${ia.id}')">Copiar</button>
-            <pre id="tweet2-${ia.id}">${tweet2}</pre>
+            <button class="copy-btn" onclick="copyText(this, 'tweet-${ia.id}')">Copiar</button>
+            <pre id="tweet-${ia.id}">${tweet}</pre>
           </div>
         </div>`;
     }).join("");
