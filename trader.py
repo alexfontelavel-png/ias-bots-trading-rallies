@@ -12,6 +12,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 from google import genai
+from google.genai import types
 
 # ── CONFIGURACIÓN DE MERCADOS ────────────────────────────────────
 
@@ -23,8 +24,8 @@ MERCADOS = {
         "PG", "HD", "MRK", "COST", "BRK-B"
     ],
     "Europa - EuroStoxx": [
-        "ASML.AS", "MC.PA",  "SAP.DE",  "LVMH.PA", "SIE.DE",
-        "NESN.SW", "ROG.SW", "NOVN.SW", "AZN.L",   "SHELL.AS"
+        "ASML.AS", "MC.PA", "SAP.DE", "LVMH.PA", "SIE.DE",
+        "NESN.SW", "ROG.SW", "NOVN.SW", "AZN.L", "SHELL.AS"
     ],
     "Asia - KOSPI / Nikkei": [
         "005930.KS",  # Samsung
@@ -53,19 +54,15 @@ WATCHLIST = [t for tickers in MERCADOS.values() for t in tickers]
 
 def get_market_snapshot():
     print(f"[{datetime.now().strftime('%H:%M:%S')}] Descargando datos...")
-
     all_tickers = WATCHLIST + list(INDICES.values())
     data = yf.download(all_tickers, period="5d", interval="1d",
                        progress=False, auto_adjust=True)
-
     snapshot = {
         "fecha": datetime.now().strftime("%Y-%m-%d"),
         "hora": datetime.now().strftime("%H:%M"),
         "indices": {},
         "mercados": {}
     }
-
-    # Índices
     for nombre, ticker in INDICES.items():
         try:
             closes = data["Close"][ticker].dropna()
@@ -76,8 +73,6 @@ def get_market_snapshot():
                     "cambio_pct": round((hoy - ayer) / ayer * 100, 2)
                 }
         except: pass
-
-    # Acciones por mercado
     for mercado, tickers in MERCADOS.items():
         snapshot["mercados"][mercado] = {}
         for ticker in tickers:
@@ -94,9 +89,8 @@ def get_market_snapshot():
                         "precio_ayer": round(ayer, 2)
                     }
             except: pass
-
     total = sum(len(v) for v in snapshot["mercados"].values())
-    print(f"  ✓ {total} acciones en {len(snapshot['mercados'])} mercados · {len(snapshot['indices'])} índices")
+    print(f"  ✓ {total} acciones · {len(snapshot['indices'])} índices")
     return snapshot
 
 
@@ -105,16 +99,13 @@ def format_market_for_prompt(snapshot):
     for nombre, d in snapshot["indices"].items():
         s = "+" if d["cambio_pct"] > 0 else ""
         lines.append(f"  {nombre:<12}: {d['valor']:>10,.2f}  ({s}{d['cambio_pct']}%)")
-
     for mercado, acciones in snapshot["mercados"].items():
         lines.append(f"\n=== {mercado.upper()} ===")
         lines.append(f"  {'TICKER':<12} {'PRECIO':>10} {'CAMBIO':>8} {'VOLUMEN':>10}")
         lines.append(f"  {'-'*44}")
-        sorted_acc = sorted(acciones.items(), key=lambda x: abs(x[1]["cambio_pct"]), reverse=True)
-        for ticker, d in sorted_acc:
+        for ticker, d in sorted(acciones.items(), key=lambda x: abs(x[1]["cambio_pct"]), reverse=True):
             s = "+" if d["cambio_pct"] > 0 else ""
             lines.append(f"  {ticker:<12} {d['precio']:>10.2f} {s}{d['cambio_pct']:>6.2f}% {d['volumen_M']:>7.1f}M")
-
     return "\n".join(lines)
 
 
@@ -182,10 +173,7 @@ class Portfolio:
             cantidad = int(op.get("cantidad", 0))
             justificacion = op.get("justificacion", "")
             if accion == "mantener" or cantidad == 0: continue
-            precio = precios.get(ticker)
-            if not precio:
-                # Prueba sin sufijo de mercado (por si acaso)
-                precio = precios.get(ticker.split(".")[0])
+            precio = precios.get(ticker) or precios.get(ticker.split(".")[0])
             if not precio:
                 print(f"  ⚠ Sin precio para {ticker}")
                 continue
@@ -230,65 +218,91 @@ class Portfolio:
         return trades
 
 
-# ── GEMINI TRADER ────────────────────────────────────────────────
+# ── GEMINI TRADER CON BÚSQUEDA WEB ───────────────────────────────
 
 def get_gemini_decision(market_text, portfolio_text, fecha, api_key):
     client = genai.Client(api_key=api_key)
 
-    prompt = f"""Eres un gestor de cartera global con acceso a mercados de USA, Europa y Asia.
-Hoy es {fecha}. Gestionas una cartera ficticia de 20.000€.
+    prompt = f"""Eres un gestor de cartera global profesional. Hoy es {fecha}.
+
+INSTRUCCIÓN IMPORTANTE: Antes de responder, usa la herramienta de búsqueda web para buscar:
+1. "stock market news today {fecha}" — noticias del mercado de hoy
+2. "S&P 500 NASDAQ market movers today" — los valores con más movimiento
+3. Noticias específicas de las empresas en tu cartera o que estés considerando comprar
+
+Usa esas noticias reales para fundamentar tus decisiones. No hagas análisis genérico — cita noticias concretas y explica cómo afectan a cada empresa.
 
 {portfolio_text}
 
 {market_text}
 
 REGLAS DE INVERSIÓN:
-- No superar el 25% de la cartera total en una sola posición.
+- No superar el 25% de la cartera en una sola posición.
 - No gastar más cash del disponible.
-- Solo puedes operar con los tickers exactos que aparecen en la tabla.
-- Horizonte de inversión: medio plazo (semanas a meses).
-- Puedes diversificar entre mercados geográficos si lo ves conveniente.
+- Solo operar con los tickers exactos de la tabla.
+- Horizonte medio plazo (semanas a meses).
+- Cada justificación DEBE mencionar una noticia o dato concreto del día.
 
-TAREA: Analiza el mercado global de hoy y decide qué hacer.
-
-Responde ÚNICAMENTE con este JSON (sin markdown, sin texto fuera del JSON):
+Responde ÚNICAMENTE con este JSON (sin markdown):
 {{
-  "razonamiento_general": "Análisis detallado del mercado global hoy: qué está pasando en USA, Europa y Asia, qué sectores destacan, qué macro influye, y cuál es tu visión general. Mínimo 4-5 frases.",
+  "razonamiento_general": "Análisis detallado citando noticias reales del día: qué ha pasado hoy en los mercados, qué eventos concretos han movido los precios, cómo afecta a tu estrategia. Mínimo 5 frases con datos específicos.",
+  "noticias_clave": [
+    {{"titular": "Noticia concreta que has encontrado", "impacto": "Cómo afecta a tu cartera o decisiones"}}
+  ],
   "operaciones": [
     {{
       "ticker": "AAPL",
       "accion": "comprar|vender|mantener",
       "cantidad": 10,
-      "justificacion": "Explicación detallada y específica de por qué tomas esta decisión con este ticker concreto. Menciona valoración, momentum, contexto sectorial o macro. Mínimo 2-3 frases."
+      "justificacion": "Explicación específica citando la noticia o dato concreto que motiva esta operación. Mínimo 3 frases."
     }}
   ],
-  "perspectiva": "Tu visión para los próximos 5-10 días de trading: qué catalizadores vigilas, qué riesgos ves, cómo posicionas la cartera. 3-4 frases.",
+  "perspectiva": "Qué catalizadores concretos vigilas para los próximos días, con fechas o eventos específicos si los hay. 3-4 frases.",
   "confianza": 75,
-  "resumen_cartera": "Descripción breve de cómo queda la cartera tras las operaciones de hoy y por qué tiene sentido esta composición."
-}}
+  "resumen_cartera": "Cómo queda la cartera y por qué tiene sentido esta composición hoy."
+}}"""
 
-Si hoy no ves oportunidades claras, devuelve operaciones vacías y explica por qué en razonamiento_general."""
-
-    print("  Consultando a Gemini 2.5 Flash...")
+    print("  Consultando a Gemini 2.5 Flash con búsqueda web...")
     try:
         response = client.models.generate_content(
             model="gemini-2.5-flash",
-            contents=prompt
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                temperature=0.7,
+                max_output_tokens=2500,
+            )
         )
-        raw = response.text.strip()
+
+        # Extrae solo el texto (puede venir mezclado con resultados de búsqueda)
+        raw = ""
+        for part in response.candidates[0].content.parts:
+            if hasattr(part, "text") and part.text:
+                raw += part.text
+
+        raw = raw.strip()
         match = re.search(r'\{.*\}', raw, re.DOTALL)
-        if match: raw = match.group(0)
+        if match:
+            raw = match.group(0)
+
         decision = json.loads(raw)
         print(f"  ✓ Gemini decidió ({len(decision.get('operaciones', []))} operaciones)")
         return decision
+
     except Exception as e:
         if "429" in str(e):
             print("  ⏳ Rate limit, esperando 20s...")
             time.sleep(20)
             return get_gemini_decision(market_text, portfolio_text, fecha, api_key)
         print(f"  ⚠ Error: {e}")
-        return {"razonamiento_general": f"Error: {e}", "operaciones": [],
-                "perspectiva": "", "confianza": 0, "resumen_cartera": ""}
+        return {
+            "razonamiento_general": f"Error: {e}",
+            "noticias_clave": [],
+            "operaciones": [],
+            "perspectiva": "",
+            "confianza": 0,
+            "resumen_cartera": ""
+        }
 
 
 # ── RUNNER PRINCIPAL ─────────────────────────────────────────────
@@ -296,7 +310,7 @@ Si hoy no ves oportunidades claras, devuelve operaciones vacías y explica por q
 def run():
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("❌ GEMINI_API_KEY no encontrada en variables de entorno")
+        print("❌ GEMINI_API_KEY no encontrada")
         return
 
     fecha = datetime.now().strftime("%Y-%m-%d")
@@ -304,7 +318,6 @@ def run():
     print(f"  AI TRADER GLOBAL · Gemini · {fecha}")
     print(f"{'='*60}\n")
 
-    # 1. Mercado
     snapshot = get_market_snapshot()
     market_text = format_market_for_prompt(snapshot)
     precios = {}
@@ -312,15 +325,12 @@ def run():
         for ticker, d in acciones.items():
             precios[ticker] = d["precio"]
 
-    # 2. Cartera
     portfolio = Portfolio("gemini")
     portfolio_text = portfolio.get_resumen_para_prompt(precios)
     print(portfolio_text + "\n")
 
-    # 3. Decisión
     decision = get_gemini_decision(market_text, portfolio_text, fecha, api_key)
 
-    # 4. Operaciones
     print("\n--- Operaciones de hoy ---")
     trades = portfolio.ejecutar_operaciones(
         decision.get("operaciones", []), precios, fecha
@@ -328,7 +338,6 @@ def run():
     if not trades:
         print("  Sin operaciones hoy")
 
-    # 5. Guardar estado
     valor_total = portfolio.get_valor_total(precios)
     portfolio.state["valor_historico"].append({
         "fecha": fecha,
@@ -337,7 +346,6 @@ def run():
     })
     portfolio.save()
 
-    # 6. Log del día (lo que leerá el frontend)
     log = {
         "fecha": fecha,
         "ia": "gemini",
@@ -346,7 +354,9 @@ def run():
         "rentabilidad_pct": round((valor_total - INITIAL_CASH) / INITIAL_CASH * 100, 2),
         "cash": portfolio.state["cash"],
         "posiciones": portfolio.state["posiciones"],
+        "historial": portfolio.state["historial"],
         "razonamiento": decision.get("razonamiento_general", ""),
+        "noticias_clave": decision.get("noticias_clave", []),
         "perspectiva": decision.get("perspectiva", ""),
         "resumen_cartera": decision.get("resumen_cartera", ""),
         "confianza": decision.get("confianza", 0),
@@ -359,17 +369,13 @@ def run():
     with open(log_path, "w") as f:
         json.dump(log, f, indent=2, ensure_ascii=False)
 
-    # 7. Actualiza el archivo latest.json (el frontend siempre lee este)
-    latest_path = Path("data/latest_gemini.json")
-    with open(latest_path, "w") as f:
+    with open("data/latest_gemini.json", "w") as f:
         json.dump(log, f, indent=2, ensure_ascii=False)
 
-    # 8. Resumen consola
     rent = (valor_total - INITIAL_CASH) / INITIAL_CASH * 100
     print(f"\n{'─'*60}")
     print(f"  📊 Cartera: {valor_total:,.2f}€  ({'+' if rent>=0 else ''}{rent:.2f}%)")
     print(f"  💬 {decision.get('razonamiento_general','')[:200]}")
-    print(f"  🔮 {decision.get('perspectiva','')[:150]}")
     print(f"  ✅ Guardado en {log_path}")
     print(f"{'─'*60}\n")
 
