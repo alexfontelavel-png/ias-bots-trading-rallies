@@ -7,7 +7,7 @@ on:
     - cron: '0 21 * * 1-5'   # Lunes a Viernes (mercados cerrados el finde)
   workflow_dispatch:           # También permite ejecutarlo manualmente desde GitHub
 
-jobs:
+jobs: 
   trade:
     runs-on: ubuntu-latest
 
