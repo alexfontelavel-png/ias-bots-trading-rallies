@@ -1,6 +1,6 @@
 {
   "ia": "gemini",
-  "cash": 450.53000000000156,
+  "cash": 64.55000000000155,
   "posiciones": {
     "AAPL": {
       "cantidad": 17,
@@ -17,6 +17,10 @@
     "SAP.DE": {
       "cantidad": 37,
       "precio_medio": 135.14
+    },
+    "MRK": {
+      "cantidad": 3,
+      "precio_medio": 128.66
     }
   },
   "historial": [
@@ -51,9 +55,22 @@
       "cantidad": 37,
       "precio": 135.14,
       "justificacion": "SAP (SAP.DE) es el mayor proveedor de software empresarial de Europa y muestra un sólido crecimiento del +2.16% hoy, destacando en un mercado europeo que opera a la baja. Esta empresa ofrece software crítico para la gestión de negocios, lo que se traduce en ingresos recurrentes y una fuerte posición de mercado. La inversión en SAP diversifica geográficamente la cartera hacia Europa y añade exposición al sector de software empresarial, un área fundamental y de alto margen."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "MRK",
+      "cantidad": 3,
+      "precio": 128.66,
+      "justificacion": "MRK es una compañía farmacéutica líder que ha mostrado un fuerte impulso hoy (+2.56%) en un sector de salud que se presenta robusto y defensivo ante la incertidumbre global. La compra de 3 acciones por un valor de 385.98€ utiliza una parte significativa del cash disponible, añade una nueva posición de calidad y mejora la diversificación de la cartera, especialmente en el sector de salud, sin exceder los límites de ponderación de la cartera ni el cash disponible. Esta adición refuerza la resiliencia del portfolio."
     }
   ],
   "valor_historico": [
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    },
     {
       "fecha": "2026-06-28",
       "valor": 20000.0,
