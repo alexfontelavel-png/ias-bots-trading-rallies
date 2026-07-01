@@ -80,6 +80,11 @@
       "fecha": "2026-06-28",
       "valor": 20000.0,
       "rentabilidad_pct": 0.0
+    },
+    {
+      "fecha": "2026-07-01",
+      "valor": 20216.2,
+      "rentabilidad_pct": 1.08
     }
   ]
 }
