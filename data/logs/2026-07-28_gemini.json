@@ -2,8 +2,8 @@
   "fecha": "2026-07-28",
   "ia": "gemini",
   "modelo": "gemini-2.5-flash",
-  "valor_cartera": 21283.94,
-  "rentabilidad_pct": 6.42,
+  "valor_cartera": 22049.18,
+  "rentabilidad_pct": 10.25,
   "cash": 64.55000000000155,
   "posiciones": {
     "AAPL": {
@@ -69,7 +69,7 @@
       "justificacion": "MRK es una compañía farmacéutica líder que ha mostrado un fuerte impulso hoy (+2.56%) en un sector de salud que se presenta robusto y defensivo ante la incertidumbre global. La compra de 3 acciones por un valor de 385.98€ utiliza una parte significativa del cash disponible, añade una nueva posición de calidad y mejora la diversificación de la cartera, especialmente en el sector de salud, sin exceder los límites de ponderación de la cartera ni el cash disponible. Esta adición refuerza la resiliencia del portfolio."
     }
   ],
-  "razonamiento": "Error: maximum recursion depth exceeded in comparison",
+  "razonamiento": "Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The service is currently unavailable.', 'status': 'UNAVAILABLE'}}",
   "noticias_clave": [],
   "perspectiva": "",
   "resumen_cartera": "",
@@ -77,24 +77,24 @@
   "operaciones": [],
   "indices": {
     "S&P 500": {
-      "valor": 7413.18,
-      "cambio_pct": 0.02
+      "valor": 7428.78,
+      "cambio_pct": 0.21
     },
     "NASDAQ": {
-      "valor": 24932.08,
-      "cambio_pct": -0.18
+      "valor": 24876.91,
+      "cambio_pct": -0.22
     },
     "EuroStoxx": {
-      "valor": 6280.94,
-      "cambio_pct": 1.14
+      "valor": 6289.51,
+      "cambio_pct": 0.12
     },
     "KOSPI": {
-      "valor": 6690.62,
-      "cambio_pct": -5.72
+      "valor": 6755.75,
+      "cambio_pct": 0.97
     },
     "Nikkei": {
-      "valor": 64611.15,
-      "cambio_pct": -2.73
+      "valor": 64931.19,
+      "cambio_pct": 0.5
     }
   },
   "valor_historico": [
@@ -212,6 +212,11 @@
       "fecha": "2026-07-28",
       "valor": 21283.94,
       "rentabilidad_pct": 6.42
+    },
+    {
+      "fecha": "2026-07-28",
+      "valor": 22049.18,
+      "rentabilidad_pct": 10.25
     }
   ]
 }
