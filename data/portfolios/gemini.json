@@ -260,6 +260,11 @@
       "fecha": "2026-08-18",
       "valor": 23092.61,
       "rentabilidad_pct": 15.46
+    },
+    {
+      "fecha": "2026-08-19",
+      "valor": 23562.99,
+      "rentabilidad_pct": 17.81
     }
   ]
 }
