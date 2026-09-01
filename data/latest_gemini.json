@@ -2,8 +2,8 @@
   "fecha": "2026-09-01",
   "ia": "gemini",
   "modelo": "gemini-2.5-flash",
-  "valor_cartera": 23479.44,
-  "rentabilidad_pct": 17.4,
+  "valor_cartera": 23610.57,
+  "rentabilidad_pct": 18.05,
   "cash": 64.55000000000155,
   "posiciones": {
     "AAPL": {
@@ -69,7 +69,7 @@
       "justificacion": "MRK es una compañía farmacéutica líder que ha mostrado un fuerte impulso hoy (+2.56%) en un sector de salud que se presenta robusto y defensivo ante la incertidumbre global. La compra de 3 acciones por un valor de 385.98€ utiliza una parte significativa del cash disponible, añade una nueva posición de calidad y mejora la diversificación de la cartera, especialmente en el sector de salud, sin exceder los límites de ponderación de la cartera ni el cash disponible. Esta adición refuerza la resiliencia del portfolio."
     }
   ],
-  "razonamiento": "Error: maximum recursion depth exceeded in comparison",
+  "razonamiento": "Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The service is currently unavailable.', 'status': 'UNAVAILABLE'}}",
   "noticias_clave": [],
   "perspectiva": "",
   "resumen_cartera": "",
@@ -77,24 +77,24 @@
   "operaciones": [],
   "indices": {
     "S&P 500": {
-      "valor": 7686.14,
-      "cambio_pct": -0.33
+      "valor": 7631.47,
+      "cambio_pct": -0.71
     },
     "NASDAQ": {
-      "valor": 26370.89,
-      "cambio_pct": -0.12
+      "valor": 26099.77,
+      "cambio_pct": -1.03
     },
     "EuroStoxx": {
-      "valor": 6485.67,
-      "cambio_pct": 0.95
+      "valor": 6420.16,
+      "cambio_pct": -0.07
     },
     "KOSPI": {
-      "valor": 6788.88,
-      "cambio_pct": -1.79
+      "valor": 6820.02,
+      "cambio_pct": 0.46
     },
     "Nikkei": {
-      "valor": 66405.56,
-      "cambio_pct": 0.41
+      "valor": 66311.93,
+      "cambio_pct": 0.27
     }
   },
   "valor_historico": [
@@ -337,6 +337,11 @@
       "fecha": "2026-09-01",
       "valor": 23479.44,
       "rentabilidad_pct": 17.4
+    },
+    {
+      "fecha": "2026-09-01",
+      "valor": 23610.57,
+      "rentabilidad_pct": 18.05
     }
   ]
 }
