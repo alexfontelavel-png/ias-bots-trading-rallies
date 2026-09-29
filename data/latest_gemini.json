@@ -2,8 +2,8 @@
   "fecha": "2026-09-29",
   "ia": "gemini",
   "modelo": "gemini-2.5-flash",
-  "valor_cartera": 23584.37,
-  "rentabilidad_pct": 17.92,
+  "valor_cartera": 23184.83,
+  "rentabilidad_pct": 15.92,
   "cash": 64.55000000000155,
   "posiciones": {
     "AAPL": {
@@ -77,24 +77,24 @@
   "operaciones": [],
   "indices": {
     "S&P 500": {
-      "valor": 7683.69,
-      "cambio_pct": -0.77
+      "valor": 7670.84,
+      "cambio_pct": -0.17
     },
     "NASDAQ": {
-      "valor": 26820.38,
-      "cambio_pct": -0.92
+      "valor": 26797.54,
+      "cambio_pct": -0.09
     },
     "EuroStoxx": {
-      "valor": 6302.82,
-      "cambio_pct": 0.48
+      "valor": 6301.28,
+      "cambio_pct": -0.02
     },
     "KOSPI": {
-      "valor": 6882.25,
-      "cambio_pct": -2.81
+      "valor": 6889.74,
+      "cambio_pct": -2.7
     },
     "Nikkei": {
-      "valor": 65360.04,
-      "cambio_pct": -1.51
+      "valor": 65877.62,
+      "cambio_pct": -0.73
     }
   },
   "valor_historico": [
@@ -437,6 +437,11 @@
       "fecha": "2026-09-29",
       "valor": 23584.37,
       "rentabilidad_pct": 17.92
+    },
+    {
+      "fecha": "2026-09-29",
+      "valor": 23184.83,
+      "rentabilidad_pct": 15.92
     }
   ]
 }
