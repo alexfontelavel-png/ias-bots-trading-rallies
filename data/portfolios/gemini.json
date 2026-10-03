@@ -420,6 +420,11 @@
       "fecha": "2026-10-02",
       "valor": 23293.45,
       "rentabilidad_pct": 16.47
+    },
+    {
+      "fecha": "2026-10-03",
+      "valor": 23148.17,
+      "rentabilidad_pct": 15.74
     }
   ]
 }
