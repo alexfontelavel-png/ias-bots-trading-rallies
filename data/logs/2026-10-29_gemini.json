@@ -1,0 +1,543 @@
+{
+  "fecha": "2026-10-29",
+  "ia": "gemini",
+  "modelo": "gemini-2.5-flash",
+  "valor_cartera": 24698.23,
+  "rentabilidad_pct": 23.49,
+  "cash": 64.55000000000155,
+  "posiciones": {
+    "AAPL": {
+      "cantidad": 17,
+      "precio_medio": 283.78
+    },
+    "JNJ": {
+      "cantidad": 19,
+      "precio_medio": 254.66
+    },
+    "AMZN": {
+      "cantidad": 21,
+      "precio_medio": 232.69
+    },
+    "SAP.DE": {
+      "cantidad": 37,
+      "precio_medio": 135.14
+    },
+    "MRK": {
+      "cantidad": 3,
+      "precio_medio": 128.66
+    }
+  },
+  "historial": [
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AAPL",
+      "cantidad": 17,
+      "precio": 283.78,
+      "justificacion": "Apple (AAPL) es una de las empresas tecnológicas más sólidas y con una marca global inigualable. Su comportamiento hoy, con un aumento del +3.14% a pesar de la ligera caída del NASDAQ, demuestra su resiliencia y el interés continuado de los inversores. La compra de acciones de Apple se alinea con una estrategia de inversión a medio plazo en empresas de calidad con un historial probado de crecimiento e innovación, ofreciendo una exposición robusta al sector tecnológico y al consumo discrecional."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "JNJ",
+      "cantidad": 19,
+      "precio": 254.66,
+      "justificacion": "Johnson & Johnson (JNJ) es un gigante del sector de la salud, conocido por su estabilidad y su naturaleza defensiva. Su significativo incremento del +3.99% hoy sugiere que los inversores buscan refugio en compañías con flujos de caja estables y dividendos fiables en un entorno de mayor incertidumbre global. Esta posición añade una importante diversificación sectorial a la cartera, equilibrando el componente tecnológico con un baluarte de la salud."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "AMZN",
+      "cantidad": 21,
+      "precio": 232.69,
+      "justificacion": "Amazon (AMZN) sigue siendo un líder indiscutible en comercio electrónico y servicios en la nube (AWS), dos áreas de crecimiento estructural a largo plazo. Su subida del +2.50% hoy refleja la confianza en su modelo de negocio diversificado y su capacidad de adaptación. Incluir AMZN en la cartera proporciona una exposición significativa al crecimiento del consumo digital y la infraestructura tecnológica, sectores que continúan expandiéndose globalmente."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "SAP.DE",
+      "cantidad": 37,
+      "precio": 135.14,
+      "justificacion": "SAP (SAP.DE) es el mayor proveedor de software empresarial de Europa y muestra un sólido crecimiento del +2.16% hoy, destacando en un mercado europeo que opera a la baja. Esta empresa ofrece software crítico para la gestión de negocios, lo que se traduce en ingresos recurrentes y una fuerte posición de mercado. La inversión en SAP diversifica geográficamente la cartera hacia Europa y añade exposición al sector de software empresarial, un área fundamental y de alto margen."
+    },
+    {
+      "fecha": "2026-06-28",
+      "accion": "comprar",
+      "ticker": "MRK",
+      "cantidad": 3,
+      "precio": 128.66,
+      "justificacion": "MRK es una compañía farmacéutica líder que ha mostrado un fuerte impulso hoy (+2.56%) en un sector de salud que se presenta robusto y defensivo ante la incertidumbre global. La compra de 3 acciones por un valor de 385.98€ utiliza una parte significativa del cash disponible, añade una nueva posición de calidad y mejora la diversificación de la cartera, especialmente en el sector de salud, sin exceder los límites de ponderación de la cartera ni el cash disponible. Esta adición refuerza la resiliencia del portfolio."
+    }
+  ],
+  "razonamiento": "Error: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+  "noticias_clave": [],
+  "perspectiva": "",
+  "resumen_cartera": "",
+  "confianza": 0,
+  "operaciones": [],
+  "indices": {
+    "NASDAQ": {
+      "valor": 26549.85,
+      "cambio_pct": 0.27
+    },
+    "EuroStoxx": {
+      "valor": 6164.69,
+      "cambio_pct": 0.79
+    },
+    "KOSPI": {
+      "valor": 6042.84,
+      "cambio_pct": 7.17
+    },
+    "Nikkei": {
+      "valor": 64275.28,
+      "cambio_pct": 1.59
+    }
+  },
+  "valor_historico": [
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    },
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    },
+    {
+      "fecha": "2026-06-28",
+      "valor": 20000.0,
+      "rentabilidad_pct": 0.0
+    },
+    {
+      "fecha": "2026-07-01",
+      "valor": 20216.2,
+      "rentabilidad_pct": 1.08
+    },
+    {
+      "fecha": "2026-07-02",
+      "valor": 20529.4,
+      "rentabilidad_pct": 2.65
+    },
+    {
+      "fecha": "2026-07-03",
+      "valor": 20971.55,
+      "rentabilidad_pct": 4.86
+    },
+    {
+      "fecha": "2026-07-04",
+      "valor": 20960.45,
+      "rentabilidad_pct": 4.8
+    },
+    {
+      "fecha": "2026-07-07",
+      "valor": 21114.62,
+      "rentabilidad_pct": 5.57
+    },
+    {
+      "fecha": "2026-07-08",
+      "valor": 21157.71,
+      "rentabilidad_pct": 5.79
+    },
+    {
+      "fecha": "2026-07-09",
+      "valor": 20918.33,
+      "rentabilidad_pct": 4.59
+    },
+    {
+      "fecha": "2026-07-10",
+      "valor": 21053.7,
+      "rentabilidad_pct": 5.27
+    },
+    {
+      "fecha": "2026-07-11",
+      "valor": 20926.75,
+      "rentabilidad_pct": 4.63
+    },
+    {
+      "fecha": "2026-07-13",
+      "valor": 21012.51,
+      "rentabilidad_pct": 5.06
+    },
+    {
+      "fecha": "2026-07-14",
+      "valor": 21006.59,
+      "rentabilidad_pct": 5.03
+    },
+    {
+      "fecha": "2026-07-16",
+      "valor": 21109.06,
+      "rentabilidad_pct": 5.55
+    },
+    {
+      "fecha": "2026-07-17",
+      "valor": 21178.24,
+      "rentabilidad_pct": 5.89
+    },
+    {
+      "fecha": "2026-07-17",
+      "valor": 21212.9,
+      "rentabilidad_pct": 6.06
+    },
+    {
+      "fecha": "2026-07-21",
+      "valor": 21070.19,
+      "rentabilidad_pct": 5.35
+    },
+    {
+      "fecha": "2026-07-22",
+      "valor": 21090.67,
+      "rentabilidad_pct": 5.45
+    },
+    {
+      "fecha": "2026-07-23",
+      "valor": 21033.45,
+      "rentabilidad_pct": 5.17
+    },
+    {
+      "fecha": "2026-07-24",
+      "valor": 20642.68,
+      "rentabilidad_pct": 3.21
+    },
+    {
+      "fecha": "2026-07-25",
+      "valor": 20745.85,
+      "rentabilidad_pct": 3.73
+    },
+    {
+      "fecha": "2026-07-28",
+      "valor": 21283.94,
+      "rentabilidad_pct": 6.42
+    },
+    {
+      "fecha": "2026-07-28",
+      "valor": 22049.18,
+      "rentabilidad_pct": 10.25
+    },
+    {
+      "fecha": "2026-07-29",
+      "valor": 22005.06,
+      "rentabilidad_pct": 10.03
+    },
+    {
+      "fecha": "2026-07-30",
+      "valor": 21697.35,
+      "rentabilidad_pct": 8.49
+    },
+    {
+      "fecha": "2026-07-31",
+      "valor": 22114.61,
+      "rentabilidad_pct": 10.57
+    },
+    {
+      "fecha": "2026-08-03",
+      "valor": 22495.89,
+      "rentabilidad_pct": 12.48
+    },
+    {
+      "fecha": "2026-08-04",
+      "valor": 22469.18,
+      "rentabilidad_pct": 12.35
+    },
+    {
+      "fecha": "2026-08-05",
+      "valor": 22549.46,
+      "rentabilidad_pct": 12.75
+    },
+    {
+      "fecha": "2026-08-07",
+      "valor": 22623.33,
+      "rentabilidad_pct": 13.12
+    },
+    {
+      "fecha": "2026-08-07",
+      "valor": 23051.06,
+      "rentabilidad_pct": 15.26
+    },
+    {
+      "fecha": "2026-08-10",
+      "valor": 23146.11,
+      "rentabilidad_pct": 15.73
+    },
+    {
+      "fecha": "2026-08-11",
+      "valor": 22979.05,
+      "rentabilidad_pct": 14.9
+    },
+    {
+      "fecha": "2026-08-12",
+      "valor": 22681.3,
+      "rentabilidad_pct": 13.41
+    },
+    {
+      "fecha": "2026-08-13",
+      "valor": 22696.93,
+      "rentabilidad_pct": 13.48
+    },
+    {
+      "fecha": "2026-08-14",
+      "valor": 22800.36,
+      "rentabilidad_pct": 14.0
+    },
+    {
+      "fecha": "2026-08-17",
+      "valor": 22784.49,
+      "rentabilidad_pct": 13.92
+    },
+    {
+      "fecha": "2026-08-18",
+      "valor": 23092.61,
+      "rentabilidad_pct": 15.46
+    },
+    {
+      "fecha": "2026-08-19",
+      "valor": 23562.99,
+      "rentabilidad_pct": 17.81
+    },
+    {
+      "fecha": "2026-08-20",
+      "valor": 23214.64,
+      "rentabilidad_pct": 16.07
+    },
+    {
+      "fecha": "2026-08-21",
+      "valor": 23307.38,
+      "rentabilidad_pct": 16.54
+    },
+    {
+      "fecha": "2026-08-24",
+      "valor": 23409.94,
+      "rentabilidad_pct": 17.05
+    },
+    {
+      "fecha": "2026-08-25",
+      "valor": 23336.14,
+      "rentabilidad_pct": 16.68
+    },
+    {
+      "fecha": "2026-08-27",
+      "valor": 23310.4,
+      "rentabilidad_pct": 16.55
+    },
+    {
+      "fecha": "2026-08-28",
+      "valor": 22952.86,
+      "rentabilidad_pct": 14.76
+    },
+    {
+      "fecha": "2026-08-29",
+      "valor": 23657.85,
+      "rentabilidad_pct": 18.29
+    },
+    {
+      "fecha": "2026-09-01",
+      "valor": 23479.44,
+      "rentabilidad_pct": 17.4
+    },
+    {
+      "fecha": "2026-09-01",
+      "valor": 23610.57,
+      "rentabilidad_pct": 18.05
+    },
+    {
+      "fecha": "2026-09-02",
+      "valor": 23444.98,
+      "rentabilidad_pct": 17.22
+    },
+    {
+      "fecha": "2026-09-03",
+      "valor": 23541.49,
+      "rentabilidad_pct": 17.71
+    },
+    {
+      "fecha": "2026-09-04",
+      "valor": 23479.57,
+      "rentabilidad_pct": 17.4
+    },
+    {
+      "fecha": "2026-09-07",
+      "valor": 23483.27,
+      "rentabilidad_pct": 17.42
+    },
+    {
+      "fecha": "2026-09-08",
+      "valor": 23265.48,
+      "rentabilidad_pct": 16.33
+    },
+    {
+      "fecha": "2026-09-09",
+      "valor": 22965.74,
+      "rentabilidad_pct": 14.83
+    },
+    {
+      "fecha": "2026-09-10",
+      "valor": 23166.53,
+      "rentabilidad_pct": 15.83
+    },
+    {
+      "fecha": "2026-09-11",
+      "valor": 23162.67,
+      "rentabilidad_pct": 15.81
+    },
+    {
+      "fecha": "2026-09-14",
+      "valor": 23104.5,
+      "rentabilidad_pct": 15.52
+    },
+    {
+      "fecha": "2026-09-15",
+      "valor": 23313.94,
+      "rentabilidad_pct": 16.57
+    },
+    {
+      "fecha": "2026-09-16",
+      "valor": 23315.69,
+      "rentabilidad_pct": 16.58
+    },
+    {
+      "fecha": "2026-09-17",
+      "valor": 23546.89,
+      "rentabilidad_pct": 17.73
+    },
+    {
+      "fecha": "2026-09-18",
+      "valor": 23579.81,
+      "rentabilidad_pct": 17.9
+    },
+    {
+      "fecha": "2026-09-21",
+      "valor": 23598.53,
+      "rentabilidad_pct": 17.99
+    },
+    {
+      "fecha": "2026-09-22",
+      "valor": 23528.04,
+      "rentabilidad_pct": 17.64
+    },
+    {
+      "fecha": "2026-09-23",
+      "valor": 23332.87,
+      "rentabilidad_pct": 16.66
+    },
+    {
+      "fecha": "2026-09-24",
+      "valor": 23498.05,
+      "rentabilidad_pct": 17.49
+    },
+    {
+      "fecha": "2026-09-25",
+      "valor": 23519.99,
+      "rentabilidad_pct": 17.6
+    },
+    {
+      "fecha": "2026-09-29",
+      "valor": 23584.37,
+      "rentabilidad_pct": 17.92
+    },
+    {
+      "fecha": "2026-09-29",
+      "valor": 23184.83,
+      "rentabilidad_pct": 15.92
+    },
+    {
+      "fecha": "2026-10-01",
+      "valor": 23232.93,
+      "rentabilidad_pct": 16.16
+    },
+    {
+      "fecha": "2026-10-02",
+      "valor": 23293.45,
+      "rentabilidad_pct": 16.47
+    },
+    {
+      "fecha": "2026-10-03",
+      "valor": 23148.17,
+      "rentabilidad_pct": 15.74
+    },
+    {
+      "fecha": "2026-10-06",
+      "valor": 23032.41,
+      "rentabilidad_pct": 15.16
+    },
+    {
+      "fecha": "2026-10-07",
+      "valor": 23073.85,
+      "rentabilidad_pct": 15.37
+    },
+    {
+      "fecha": "2026-10-08",
+      "valor": 23363.19,
+      "rentabilidad_pct": 16.82
+    },
+    {
+      "fecha": "2026-10-09",
+      "valor": 23527.12,
+      "rentabilidad_pct": 17.64
+    },
+    {
+      "fecha": "2026-10-10",
+      "valor": 23318.15,
+      "rentabilidad_pct": 16.59
+    },
+    {
+      "fecha": "2026-10-13",
+      "valor": 23842.41,
+      "rentabilidad_pct": 19.21
+    },
+    {
+      "fecha": "2026-10-14",
+      "valor": 23953.41,
+      "rentabilidad_pct": 19.77
+    },
+    {
+      "fecha": "2026-10-14",
+      "valor": 23796.31,
+      "rentabilidad_pct": 18.98
+    },
+    {
+      "fecha": "2026-10-15",
+      "valor": 23763.18,
+      "rentabilidad_pct": 18.82
+    },
+    {
+      "fecha": "2026-10-16",
+      "valor": 23893.11,
+      "rentabilidad_pct": 19.47
+    },
+    {
+      "fecha": "2026-10-20",
+      "valor": 23818.0,
+      "rentabilidad_pct": 19.09
+    },
+    {
+      "fecha": "2026-10-21",
+      "valor": 24226.96,
+      "rentabilidad_pct": 21.13
+    },
+    {
+      "fecha": "2026-10-22",
+      "valor": 24488.63,
+      "rentabilidad_pct": 22.44
+    },
+    {
+      "fecha": "2026-10-23",
+      "valor": 24600.11,
+      "rentabilidad_pct": 23.0
+    },
+    {
+      "fecha": "2026-10-27",
+      "valor": 24564.96,
+      "rentabilidad_pct": 22.82
+    },
+    {
+      "fecha": "2026-10-28",
+      "valor": 24476.69,
+      "rentabilidad_pct": 22.38
+    },
+    {
+      "fecha": "2026-10-29",
+      "valor": 24698.23,
+      "rentabilidad_pct": 23.49
+    }
+  ]
+}
