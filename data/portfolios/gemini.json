@@ -525,6 +525,11 @@
       "fecha": "2026-11-03",
       "valor": 24376.19,
       "rentabilidad_pct": 21.88
+    },
+    {
+      "fecha": "2026-11-04",
+      "valor": 24251.08,
+      "rentabilidad_pct": 21.26
     }
   ]
 }
