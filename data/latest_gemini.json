@@ -1,9 +1,9 @@
 {
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-14",
   "ia": "gemini",
   "modelo": "gemini-2.5-flash",
-  "valor_cartera": 25274.31,
-  "rentabilidad_pct": 26.37,
+  "valor_cartera": 25405.83,
+  "rentabilidad_pct": 27.03,
   "cash": 64.55000000000155,
   "posiciones": {
     "AAPL": {
@@ -69,7 +69,7 @@
       "justificacion": "MRK es una compañía farmacéutica líder que ha mostrado un fuerte impulso hoy (+2.56%) en un sector de salud que se presenta robusto y defensivo ante la incertidumbre global. La compra de 3 acciones por un valor de 385.98€ utiliza una parte significativa del cash disponible, añade una nueva posición de calidad y mejora la diversificación de la cartera, especialmente en el sector de salud, sin exceder los límites de ponderación de la cartera ni el cash disponible. Esta adición refuerza la resiliencia del portfolio."
     }
   ],
-  "razonamiento": "Error: 402 RESOURCE_EXHAUSTED. {'error': {'code': 402, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}",
+  "razonamiento": "Error: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Search as tool is not enabled for api version v1. Use api version v1beta instead.', 'status': 'INVALID_ARGUMENT'}}",
   "noticias_clave": [],
   "perspectiva": "",
   "resumen_cartera": "",
@@ -77,24 +77,24 @@
   "operaciones": [],
   "indices": {
     "S&P 500": {
-      "valor": 7592.4,
-      "cambio_pct": -0.35
+      "valor": 7561.67,
+      "cambio_pct": -0.4
     },
     "NASDAQ": {
-      "valor": 25366.09,
-      "cambio_pct": -0.39
+      "valor": 25136.27,
+      "cambio_pct": -0.91
     },
     "EuroStoxx": {
-      "valor": 6393.39,
-      "cambio_pct": 1.04
+      "valor": 6398.98,
+      "cambio_pct": 0.09
     },
     "KOSPI": {
-      "valor": 5452.32,
-      "cambio_pct": 1.43
+      "valor": 5342.73,
+      "cambio_pct": -0.61
     },
     "Nikkei": {
-      "valor": 61719.94,
-      "cambio_pct": 0.77
+      "valor": 60819.36,
+      "cambio_pct": -0.7
     }
   },
   "valor_historico": [
@@ -597,6 +597,11 @@
       "fecha": "2026-11-13",
       "valor": 25274.31,
       "rentabilidad_pct": 26.37
+    },
+    {
+      "fecha": "2026-11-14",
+      "valor": 25405.83,
+      "rentabilidad_pct": 27.03
     }
   ]
 }
